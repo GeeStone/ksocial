@@ -22,7 +22,9 @@ import {
   UserPlus2,
   X,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 import useChatStore from "@/app/store/useChatStore";
 import useFriendsStore from "@/app/store/useFriendsStore";
@@ -34,6 +36,8 @@ const ProfileHeader = ({ profile, isOwner }) => {
   const [isEditCoverModal, setIsEditCoverModal] = useState(false);
   const [isCoverPhotoPreview, setIsCoverPhotoPreview] = useState(false);
   const [coverPreviewUrl, setCoverPreviewUrl] = useState("");
+
+  const router = useRouter();
 
   const { user } = useUserStore();
   const { follow, unfollow } = useFriendsStore();
@@ -68,15 +72,27 @@ const ProfileHeader = ({ profile, isOwner }) => {
       }
     } catch (e) {
       console.error("toggleFollow error:", e);
+      toast.error("Не удалось обновить статус дружбы");
     }
   };
 
   const handleOpenChat = async () => {
     if (!profile?._id || !user?._id) return;
+
     try {
-      await openConversationWithUser(profile._id);
+      const conv = await openConversationWithUser(profile._id);
+
+      if (!conv || !conv._id) {
+        console.error("openConversationWithUser не вернул корректный диалог");
+        toast.error("Не удалось открыть диалог");
+        return;
+      }
+
+      // Переходим на страницу чата
+      router.push(`/messages/${conv._id}`); // изменяем на /messages/[id]
     } catch (e) {
       console.error("openConversationWithUser error:", e);
+      toast.error("Ошибка при открытии диалога");
     }
   };
 
@@ -91,8 +107,10 @@ const ProfileHeader = ({ profile, isOwner }) => {
     try {
       await saveProfile(profile._id, formData);
       setIsEditProfileModal(false);
+      toast.success("Профиль обновлён");
     } catch (err) {
       console.error("saveProfile error:", err);
+      toast.error("Не удалось сохранить профиль");
     }
   };
 
@@ -123,8 +141,10 @@ const ProfileHeader = ({ profile, isOwner }) => {
       setIsEditCoverModal(false);
       setIsCoverPhotoPreview(false);
       setCoverPreviewUrl("");
+      toast.success("Обложка обновлена");
     } catch (err) {
       console.error("saveCoverPhoto error:", err);
+      toast.error("Не удалось сохранить обложку");
     }
   };
 

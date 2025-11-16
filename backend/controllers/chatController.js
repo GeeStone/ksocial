@@ -15,6 +15,11 @@ const response = require("../utils/responseHandler");
  * ==================================================
  * POST /chat/conversations
  * body: { partnerId }
+ *
+ * ⚠️ ЭТО КАК РАЗ ТО, ЧТО НУЖНО ДЛЯ КНОПКИ "НАПИСАТЬ СООБЩЕНИЕ" НА ПРОФИЛЕ
+ * Фронт делает:
+ * POST /chat/conversations { partnerId: profile._id }
+ * и из ответа берёт _id диалога → router.push(`/chat/${conversation._id}`)
  */
 const createOrGetConversation = async (req, res) => {
   try {
@@ -29,17 +34,20 @@ const createOrGetConversation = async (req, res) => {
       return response(res, 400, "Нельзя создать диалог с самим собой");
     }
 
+    // Ищем существующий диалог 1-на-1 между пользователями
     let conversation = await Conversation.findOne({
       participants: { $all: [currentUserId, partnerId] },
       isGroup: false,
     });
 
+    // Если не нашли — создаём новый
     if (!conversation) {
       conversation = await Conversation.create({
         participants: [currentUserId, partnerId],
       });
     }
 
+    // Подгружаем участников для удобства фронта
     const populated = await Conversation.findById(conversation._id).populate(
       "participants",
       "_id username profilePicture email"
@@ -78,11 +86,30 @@ const getUserConversations = async (req, res) => {
  * Получить сообщения конкретного диалога
  * ======================================
  * GET /chat/conversations/:conversationId/messages?limit=20&before=<ISO>
+ *
+ * ✅ Добавлена проверка, что текущий пользователь действительно
+ * участвует в указанном диалоге (без этого любой мог бы читать чужие чаты).
  */
 const getConversationMessages = async (req, res) => {
   try {
     const { conversationId } = req.params;
     const { limit = 20, before } = req.query;
+    const currentUserId = req.user.userId;
+
+    // Проверяем, что диалог существует и пользователь в нём участвует
+    const conversation = await Conversation.findById(conversationId);
+
+    if (!conversation) {
+      return response(res, 404, "Диалог не найден");
+    }
+
+    const isParticipant = conversation.participants.some(
+      (p) => p.toString() === currentUserId
+    );
+
+    if (!isParticipant) {
+      return response(res, 403, "У вас нет доступа к этому диалогу");
+    }
 
     const query = { conversation: conversationId };
 
@@ -108,6 +135,8 @@ const getConversationMessages = async (req, res) => {
  * ============================
  * POST /chat/messages/:conversationId
  * body: { text }
+ *
+ * ✅ Добавлена проверка, что текущий пользователь является участником диалога
  */
 const sendMessage = async (req, res) => {
   try {
@@ -122,6 +151,19 @@ const sendMessage = async (req, res) => {
     const conversation = await Conversation.findById(conversationId);
     if (!conversation) {
       return response(res, 404, "Диалог не найден");
+    }
+
+    // Проверяем, что отправитель действительно участник диалога
+    const isParticipant = conversation.participants.some(
+      (p) => p.toString() === currentUserId
+    );
+
+    if (!isParticipant) {
+      return response(
+        res,
+        403,
+        "Вы не являетесь участником этого диалога и не можете отправлять сообщения"
+      );
     }
 
     // создаём сообщение

@@ -45,12 +45,19 @@ const useChatStore = create(
       await get().fetchMessages(conversationId);
     },
 
-    /** Создать или получить диалог с пользователем (partnerId) и открыть его */
+    /**
+     * Создать или получить диалог с пользователем (partnerId) и открыть его
+     * Используем на профиле в кнопке "Написать сообщение"
+     *
+     * ВАЖНО: теперь функция ВОЗВРАЩАЕТ объект conv,
+     * чтобы можно было сделать router.push(`/chat/${conv._id}`)
+     */
     openConversationWithUser: async (partnerId) => {
       try {
         set({ error: null });
+
         const conv = await createOrGetConversation(partnerId);
-        if (!conv?._id) return;
+        if (!conv?._id) return null;
 
         const exists = get().conversations.some((c) => c._id === conv._id);
         set((state) => ({
@@ -61,9 +68,13 @@ const useChatStore = create(
         }));
 
         await get().fetchMessages(conv._id);
+
+        // 🔥 ВОТ ЭТО ДОБАВЛЕНО: чтобы вызвать дальше router.push(`/chat/${conv._id}`)
+        return conv;
       } catch (e) {
         console.error("❌ Ошибка при создании / открытии диалога:", e);
         set({ error: e.message || "Не удалось открыть диалог" });
+        return null;
       }
     },
 
