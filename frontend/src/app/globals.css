@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Эти rgb-значения можно оставить для legacy-мест,
+   но основной цветовой контроль будет через HSL-переменные ниже */
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 248, 249, 251;
+  --background-end-rgb: 248, 249, 251;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 248, 249, 251;
+    --background-start-rgb: 10, 10, 15;
+    --background-end-rgb: 10, 10, 15;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* ===========================
+   kSocial — Monochrome theme
+   =========================== */
+
+@layer base {
+  :root {
+    /* === БАЗОВЫЕ ЦВЕТА (светлая тема) === */
+
+    /* Основной цвет — почти чёрный */
+    --primary: 220 8% 15%;
+    --primary-foreground: 0 0% 98%;
+
+    /* Вторичный — глубокий серый */
+    --secondary: 220 5% 30%;
+    --secondary-foreground: 0 0% 98%;
+
+    /* Акцент — нейтральный серый */
+    --accent: 220 5% 50%;
+    --accent-foreground: 0 0% 98%;
+
+    /* Фон и текст */
+    --background: 0 0% 100%; /* белый фон */
+    --background-header: 0 0% 100%; /* хедер сливается с фоном */
+    --foreground: 220 10% 10%; /* почти чёрный текст */
+
+    /* Карточки / поповеры */
+    --card: 0 0% 100%;
+    --card-foreground: 220 10% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 10% 10%;
+
+    /* Приглушённые элементы (бордеры, вторичный текст) */
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 5% 45%;
+
+    /* Ошибки / destructive-состояния */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Бордеры, инпуты, фокус-кольцо */
+    --border: 220 10% 85%;
+    --input: 220 10% 85%;
+    --ring: 220 8% 15%;
+
+    /* Цвета для графиков / статистики (серые оттенки) */
+    --chart-1: 220 8% 20%;
+    --chart-2: 220 6% 35%;
+    --chart-3: 220 5% 50%;
+    --chart-4: 220 4% 65%;
+    --chart-5: 220 3% 80%;
+
+    /* Радиус скругления по умолчанию */
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* === БАЗОВЫЕ ЦВЕТА (тёмная тема) === */
+
+    /* Основной — белый на тёмном фоне */
+    --primary: 0 0% 98%;
+    --primary-foreground: 220 5% 10%;
+
+    --secondary: 0 0% 80%;
+    --secondary-foreground: 220 5% 10%;
+
+    --accent: 0 0% 70%;
+    --accent-foreground: 220 5% 10%;
+
+    /* Глубокий тёмно-серый фон */
+    --background: 220 5% 7%; /* почти чёрный, но мягкий */
+    --foreground: 0 0% 98%;
+
+    --background-header: 220 5% 7%;
+
+    --card: 220 5% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 220 5% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --muted: 220 5% 20%;
+    --muted-foreground: 0 0% 70%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 5% 22%;
+    --input: 220 5% 22%;
+    --ring: 0 0% 98%;
+
+    --chart-1: 0 0% 98%;
+    --chart-2: 0 0% 85%;
+    --chart-3: 0 0% 70%;
+    --chart-4: 0 0% 55%;
+    --chart-5: 0 0% 40%;
+  }
+}
+
+/* Базовые стили Tailwind для body и бордеров */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
