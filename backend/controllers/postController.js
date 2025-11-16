@@ -202,13 +202,8 @@ const getVideoPosts = async (_req, res) => {
  */
 const getPostByUserId = async (req, res) => {
   const { userId } = req.params;
-
   try {
-    if (!userId) {
-      return response(res, 400, "userId обязателен для получения постов");
-    }
-
-    const posts = await Post.find({ user: userId })
+    const posts = await Post.find({ user: userId }) // Фильтруем по userId
       .sort({ createdAt: -1 })
       .populate("user", "_id username profilePicture email")
       .populate({
