@@ -89,7 +89,7 @@ const ProfileHeader = ({ profile, isOwner }) => {
       }
 
       // Переходим на страницу чата
-      router.push(`/messages/${conv._id}`); // изменяем на /messages/[id]
+      router.push(`/messages`); // изменяем на /messages/[id]
     } catch (e) {
       console.error("openConversationWithUser error:", e);
       toast.error("Ошибка при открытии диалога");

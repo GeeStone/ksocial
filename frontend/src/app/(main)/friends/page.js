@@ -1,13 +1,5 @@
 "use client";
 
-/**
- * Страница "Друзья":
- *  - входящие заявки
- *  - рекомендации
- *  - мои друзья
- *  - все пользователи (кроме текущего)
- */
-
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Loader2, User } from "lucide-react";
@@ -89,7 +81,7 @@ const FriendsPage = () => {
             </h2>
 
             {friends && friends.length > 0 ? (
-              <div className="bg-white dark:bg-[rgb(36,37,38)] rounded-xl shadow-sm divide-y divide-gray-100 dark:divide-gray-800">
+              <div className="bg-white dark:bg-[rgb(36,37,38)] rounded-xl shadow-lg divide-y divide-gray-100 dark:divide-gray-800">
                 {friends.map((user) => {
                   const name = user?.username || user?.email || "Без имени";
 
@@ -105,10 +97,10 @@ const FriendsPage = () => {
                   return (
                     <div
                       key={user._id}
-                      className="flex items-center justify-between px-4 sm:px-5 py-3 sm:py-4"
+                      className="flex items-center justify-between px-4 sm:px-5 py-3 sm:py-4 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
                     >
                       <div className="flex items-center gap-3 sm:gap-4 min-w-0">
-                        <Avatar className="h-10 w-10 sm:h-11 sm:w-11">
+                        <Avatar className="h-10 w-10 sm:h-11 sm:w-11 shadow-md hover:shadow-lg">
                           <AvatarImage
                             src={user?.profilePicture || ""}
                             alt={name}
@@ -186,7 +178,7 @@ const FriendsPage = () => {
             </h2>
 
             {allUsers && allUsers.length > 0 ? (
-              <div className="bg-white dark:bg-[rgb(36,37,38)] rounded-xl shadow-sm divide-y divide-gray-100 dark:divide-gray-800">
+              <div className="bg-white dark:bg-[rgb(36,37,38)] rounded-xl shadow-lg divide-y divide-gray-100 dark:divide-gray-800">
                 {allUsers.map((user) => {
                   const name = user?.username || user?.email || "Без имени";
 
@@ -202,10 +194,10 @@ const FriendsPage = () => {
                   return (
                     <div
                       key={user._id}
-                      className="flex items-center justify-between px-4 sm:px-5 py-3 sm:py-4"
+                      className="flex items-center justify-between px-4 sm:px-5 py-3 sm:py-4 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
                     >
                       <div className="flex items-center gap-3 sm:gap-4 min-w-0">
-                        <Avatar className="h-10 w-10 sm:h-11 sm:w-11">
+                        <Avatar className="h-10 w-10 sm:h-11 sm:w-11 shadow-md hover:shadow-lg">
                           <AvatarImage
                             src={user?.profilePicture || ""}
                             alt={name}

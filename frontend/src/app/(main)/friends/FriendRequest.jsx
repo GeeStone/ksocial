@@ -50,21 +50,21 @@ const FriendRequest = ({ friend }) => {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.25 }}
-        className="bg-white dark:bg-[rgb(36,37,38)] rounded-xl shadow-sm p-4 sm:p-5 flex flex-col items-center text-center"
+        className="bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl shadow-lg p-4 sm:p-5 flex flex-col items-center text-center transform transition-all duration-300 ease-in-out hover:scale-105"
       >
-        <Avatar className="h-20 w-20 sm:h-24 sm:w-24 mb-4">
+        <Avatar className="h-20 w-20 sm:h-24 sm:w-24 mb-4 shadow-md hover:shadow-xl">
           <AvatarImage src={friend?.profilePicture || ""} alt={name} />
           <AvatarFallback className="bg-gray-700 text-white text-lg sm:text-xl">
             {initials}
           </AvatarFallback>
         </Avatar>
 
-        <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100 mb-1 max-w-full truncate">
+        <h3 className="text-base sm:text-lg font-semibold text-white mb-1 max-w-full truncate">
           {name}
         </h3>
 
         {friend?.email && (
-          <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-4 max-w-full truncate">
+          <p className="text-xs sm:text-sm text-gray-100 mb-4 max-w-full truncate">
             {friend.email}
           </p>
         )}
@@ -72,7 +72,7 @@ const FriendRequest = ({ friend }) => {
         {/* На мобиле кнопки стопкой, на sm+ — в две колонки */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full">
           <Button
-            className="bg-[#2374E1] hover:bg-[#1664c4] text-white w-full"
+            className="bg-[#2374E1] hover:bg-[#1664c4] text-white w-full transition-transform transform hover:scale-105"
             size="lg"
             aria-label="Подтвердить заявку в друзья"
             onClick={handleConfirm}
@@ -86,7 +86,7 @@ const FriendRequest = ({ friend }) => {
 
           <Button
             variant="ghost"
-            className="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 w-full text-gray-900 dark:text-gray-100"
+            className="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 w-full text-gray-900 dark:text-gray-100 transition-transform transform hover:scale-105"
             size="lg"
             aria-label="Удалить заявку в друзья"
             onClick={handleDelete}
