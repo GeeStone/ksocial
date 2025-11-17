@@ -8,6 +8,13 @@
 
 kSocial включает в себя множество фич, таких как лента новостей, сторис, чаты и уведомления — всё, что нужно для комфортного общения и взаимодействия в современном цифровом мире.
 
+<p align="center">
+  <img src="frontend/public/gifs/preview1.gif" alt="Functionality Preview 1" width="300"/>
+  <img src="frontend/public/gifs/preview2.gif" alt="Functionality Preview 2" width="300"/>
+  <img src="frontend/public/gifs/preview3.gif" alt="Functionality Preview 3" width="300"/>
+  <img src="frontend/public/gifs/preview4.gif" alt="Functionality Preview 4" width="300"/>
+</p>
+
 ---
 
 ## 🔧 Технологии
