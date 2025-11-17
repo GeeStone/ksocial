@@ -12,7 +12,6 @@ kSocial включает в себя множество фич, таких ка�
   <img src="frontend/public/preview1.gif" alt="Functionality Preview 1" width="300"/>
   <img src="frontend/public/preview2.gif" alt="Functionality Preview 2" width="300"/>
   <img src="frontend/public/preview3.gif" alt="Functionality Preview 3" width="300"/>
-  <img src="frontend/public/preview4.gif" alt="Functionality Preview 4" width="300"/>
 </p>
 
 ---
